@@ -1,0 +1,332 @@
+/* line 2, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_reset.sass */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+/* line 21, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_reset.sass */
+:focus {
+  outline: 0;
+}
+
+/* line 24, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_reset.sass */
+body {
+  line-height: 1;
+  color: black;
+  background: white;
+}
+
+/* line 29, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_reset.sass */
+ol, ul {
+  list-style: none;
+}
+
+/* line 33, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_reset.sass */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* line 37, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_reset.sass */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+}
+
+/* line 41, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_reset.sass */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+}
+
+/* line 44, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_reset.sass */
+blockquote, q {
+  quotes: "" "";
+}
+
+/* line 24, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.clearfix {
+  *zoom: 1;
+}
+/* line 15, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.clearfix:before, .clearfix:after {
+  display: table;
+  content: "";
+}
+/* line 19, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 119, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+/* line 300, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 561, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row {
+  margin-left: -20px;
+  *zoom: 1;
+}
+/* line 15, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row:before, .row:after {
+  display: table;
+  content: "";
+}
+/* line 19, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row:after {
+  clear: both;
+}
+
+/* line 566, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+[class*="span"] {
+  float: left;
+  margin-left: 20px;
+}
+
+/* line 574, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+  width: 940px;
+}
+
+/* line 581, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.span12 {
+  width: 940px;
+}
+
+/* line 581, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.span11 {
+  width: 860px;
+}
+
+/* line 581, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.span10 {
+  width: 780px;
+}
+
+/* line 581, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.span9 {
+  width: 700px;
+}
+
+/* line 581, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.span8 {
+  width: 620px;
+}
+
+/* line 581, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.span7 {
+  width: 540px;
+}
+
+/* line 581, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.span6 {
+  width: 460px;
+}
+
+/* line 581, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.span5 {
+  width: 380px;
+}
+
+/* line 581, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.span4 {
+  width: 300px;
+}
+
+/* line 581, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.span3 {
+  width: 220px;
+}
+
+/* line 581, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.span2 {
+  width: 140px;
+}
+
+/* line 581, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.span1 {
+  width: 60px;
+}
+
+/* line 587, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.offset12 {
+  margin-left: 980px;
+}
+
+/* line 587, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.offset11 {
+  margin-left: 900px;
+}
+
+/* line 587, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.offset10 {
+  margin-left: 820px;
+}
+
+/* line 587, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.offset9 {
+  margin-left: 740px;
+}
+
+/* line 587, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.offset8 {
+  margin-left: 660px;
+}
+
+/* line 587, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.offset7 {
+  margin-left: 580px;
+}
+
+/* line 587, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.offset6 {
+  margin-left: 500px;
+}
+
+/* line 587, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.offset5 {
+  margin-left: 420px;
+}
+
+/* line 587, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.offset4 {
+  margin-left: 340px;
+}
+
+/* line 587, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.offset3 {
+  margin-left: 260px;
+}
+
+/* line 587, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.offset2 {
+  margin-left: 180px;
+}
+
+/* line 587, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.offset1 {
+  margin-left: 100px;
+}
+
+/* line 598, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid {
+  width: 100%;
+  *zoom: 1;
+}
+/* line 15, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid:before, .row-fluid:after {
+  display: table;
+  content: "";
+}
+/* line 19, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid:after {
+  clear: both;
+}
+/* line 601, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid [class*="span"] {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  margin-left: 2.128%;
+  *margin-left: 2.074%;
+}
+/* line 607, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid [class*="span"]:first-child {
+  margin-left: 0;
+}
+/* line 614, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid .span12 {
+  width: 100.0%;
+  *width: 99.947%;
+}
+/* line 614, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid .span11 {
+  width: 91.489%;
+  *width: 91.436%;
+}
+/* line 614, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid .span10 {
+  width: 82.979%;
+  *width: 82.926%;
+}
+/* line 614, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid .span9 {
+  width: 74.468%;
+  *width: 74.415%;
+}
+/* line 614, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid .span8 {
+  width: 65.957%;
+  *width: 65.904%;
+}
+/* line 614, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid .span7 {
+  width: 57.447%;
+  *width: 57.394%;
+}
+/* line 614, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid .span6 {
+  width: 48.936%;
+  *width: 48.883%;
+}
+/* line 614, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid .span5 {
+  width: 40.426%;
+  *width: 40.372%;
+}
+/* line 614, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid .span4 {
+  width: 31.915%;
+  *width: 31.862%;
+}
+/* line 614, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid .span3 {
+  width: 23.404%;
+  *width: 23.351%;
+}
+/* line 614, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid .span2 {
+  width: 14.894%;
+  *width: 14.84%;
+}
+/* line 614, /home/patrick/pyramid_projects/pyramidtut/tutorial/tutorial/static/css/_mixins.scss */
+.row-fluid .span1 {
+  width: 6.383%;
+  *width: 6.33%;
+}
