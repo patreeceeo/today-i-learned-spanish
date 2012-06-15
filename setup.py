@@ -16,6 +16,7 @@ requires = [
     'waitress',
     'docutils',
     'WebTest',
+    'psycopg2'
     ]
 
 setup(name='tutorial',
