@@ -32,5 +32,5 @@ def main(argv=sys.argv):
     DBSession.configure(bind=engine)
     Base.metadata.create_all(engine)
     with transaction.manager:
-        model = Card('FrontCard', u'¿Dónde estoy?', "You are on the front page!")
+        model = Card('FrontCard', unicode('¿Dónde estoy?', 'utf-8'), "You are on the front page!")
         DBSession.add(model)
