@@ -1,0 +1,22 @@
+%%inherit(file="layouts/application.haml")
+
+%%def(name="body()")
+  ${self.navbar()}
+  #welcome-flash.flash= message
+  #login-form.container
+    .row
+      .span8
+        %form.form-horizontal(action="${url}", method="post")
+          %input(type="hidden", name="came_from", value="${came_from}")
+          %fieldset
+            %legend Login
+            .control-group
+              %label.control-label Login:
+              .controls
+                %input(type="text", name="login", value="${login}")
+            .control-group
+              %label.control-label Password: 
+              .controls
+                %input(type="password", name="password", value="${password}")
+            .form-actions
+              %input.btn.btn-primary(type="submit", name="form.submitted", value="Log In")

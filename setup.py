@@ -16,7 +16,11 @@ requires = [
     'waitress',
     'docutils',
     'WebTest',
-    'psycopg2'
+    'psycopg2',
+    'pyHAML',
+    'pyramid_haml',
+    'celementtree',
+    'markdown',
     ]
 
 setup(name='tutorial',

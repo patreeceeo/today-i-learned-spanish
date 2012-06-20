@@ -1,8 +1,11 @@
-// Variables
+// Variables.less
 // Variables to customize the look and feel of Bootstrap
 // -----------------------------------------------------
 
-
+// Updated for SASS:
+//  - replace @ with $
+//  - replace `spin` with `adjust-hue`
+//  - add !default to variable definitions
 
 // GLOBAL VALUES
 // --------------------------------------------------
@@ -27,13 +30,13 @@ $green:                 #46a546 !default;
 $red:                   #9d261d !default;
 $yellow:                #ffc40d !default;
 $orange:                #f89406 !default;
-$pink:                  #c3325f !default;
+$pink:                  #ff69b4 !default;
 $purple:                #7a43b6 !default;
 
 
 // Scaffolding
 // -------------------------
-$bodyBackground:        $white !default;
+$bodyBackground:        $pink !default;
 $textColor:             $grayDark !default;
 
 
@@ -45,17 +48,17 @@ $linkColorHover:        darken($linkColor, 15%) !default;
 
 // Typography
 // -------------------------
-$sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$sansFontFamily:        "Quattrocento Sans", Helvetica, Arial, sans-serif !default;
 $serifFontFamily:       Georgia, "Times New Roman", Times, serif !default;
 $monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace !default;
 
-$baseFontSize:          13px !default;
+$baseFontSize:          16px !default;
 $baseFontFamily:        $sansFontFamily !default;
-$baseLineHeight:        18px !default;
+$baseLineHeight:        24px !default;
 $altFontFamily:         $serifFontFamily !default;
 
-$headingsFontFamily:    inherit !default; // empty to use BS default, $baseFontFamily
-$headingsFontWeight:    bold !default;    // instead of browser default, bold
+$headingsFontFamily:    "Quattrocento Sans"; // empty to use BS default, $baseFontFamily
+$headingsFontWeight:    bold !important;    // instead of browser default, bold
 $headingsColor:         inherit !default; // empty to use BS default, $textColor
 
 
@@ -107,6 +110,7 @@ $dropdownBorder:                rgba(0,0,0,.2) !default;
 $dropdownLinkColor:             $grayDark !default;
 $dropdownLinkColorHover:        $white !default;
 $dropdownLinkBackgroundHover:   $linkColor !default;
+
 
 
 

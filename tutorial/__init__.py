@@ -24,9 +24,10 @@ def main(global_config, **settings):
     config.add_route('view_wiki', '/')
     config.add_route('login', '/login')
     config.add_route('logout', '/logout')
-    config.add_route('view_card', '/{cardname}')
-    config.add_route('add_card', '/add_card/{cardname}')
-    config.add_route('edit_card', '/{cardname}/edit_card')
+    config.add_route('view_card', '/view_card/{cardid}')
+    config.add_route('add_card', '/add_card/{cardid}')
+    config.add_route('edit_card', '/{cardid}/edit_card')
+    config.include("pyramid_haml")
     config.scan()
     return config.make_wsgi_app()
 

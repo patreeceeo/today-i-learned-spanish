@@ -1,0 +1,47 @@
+!!!
+%html(xmlns="http://www.w3.org/1999/xhtml")
+  %head
+    %title ${page_name} - TIL Spanish flashcards
+    %meta(httpEquiv="Content-Type", content="text/html;charset=UTF-8")
+    %meta(name="keywords", content="python web application")
+    %meta(name="description", content="pyramid web application")
+    %link(rel="shortcut icon", href="${request.static_url('tutorial:static/favicon.ico')}")
+    %link(rel="stylesheet", href="${request.static_url('tutorial:static/css/application.css')}", type="text/css", media="screen", charset="utf-8")
+
+    %script(type="text/javascript", src="${request.static_url('tutorial:static/js/jquery-1.7.1.js')}", charset="utf-8")
+    %script(type="text/javascript", src="${request.static_url('tutorial:static/js/application.js')}", charset="utf-8")
+    -#![if lte IE 6]
+       %link(rel="stylesheet"
+          href="${request.static_url('tutorial:static/ie6.css')}"
+          type="text/css" media="screen" charset="utf-8")
+    -#![endif]
+  %body
+    ${self.body()}
+
+%%def(name="navbar()")
+  .navbar.navbar-fixed-top
+    .navbar-inner
+      -# .container
+      -#   %a.brand(href="/") TIL Spanish!
+      .nav-collapse.collapse
+        %ul.nav
+          %li
+            %a(href="/") Home
+          %li
+            - if logged_in:
+              %a(href="${request.application_url}/logout") Logout
+            - else:
+              %a(href="${request.application_url}/login") Login 
+
+-! def markdown(mdtxt):
+  import markdown
+  return markdown.markdown(mdtxt)
+
+%%def(name="card(card)") 
+  #card
+    #card-question
+      :markdown
+        ${card.question}
+    #card-answer
+      :markdown
+        ${card.answer}

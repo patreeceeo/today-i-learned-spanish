@@ -1,0 +1,26 @@
+%%inherit(file="layouts/application.haml")
+
+%%def(name="body()")
+  ${self.navbar()}
+  #card-wrapper
+    ${self.card(card)}
+    #card-nav
+      %ul.pager
+        %li.previous
+          - if prev_url:
+            %a(href="${prev_url}") &laquo;
+          - else:
+            %a(href="#") &cross;
+        %li.next
+          - if next_url:
+            %a(href="${next_url}") &raquo;
+          - else:
+            %a(href="#") &cross;
+    #card-actions
+      %a.btn.btn-danger.btn-large(href="#", onclick="flipCard();") Flip it!
+      - if logged_in == "editor":
+        %a.btn.btn-inverse.btn-large(href="${edit_url}") Edit
+      
+%script
+  var prev_url = ${prev_url};
+  var next_url = ${next_url};

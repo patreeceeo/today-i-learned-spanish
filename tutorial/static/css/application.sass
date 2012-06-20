@@ -1,6 +1,60 @@
-@import "reset"
-@import "variables"
-@import "mixins"
-@import "grid"
+@import "compass/css3/box-shadow"
+@import "compass/css3/text-shadow"
+@import "compass/css3/border-radius"
 
+@import "bootstrap"
+
+body
+  background-color: mix(lighten(green, 40%), red, 80%)
+
+textarea, input[type=text], input[type=password]
+  +single-text-shadow(black, 2px, 2px, 2px)
+  +border-radius(4px)
+  width: auto
+  background-color: lighten(black, 24%) 
+  color: white
+  font-weight: bold
+  border-style: inset
+  resize: none
+
+.form-actions
+  background-color: inherit
+
+$card-w: 450px
+$card-h: 300px
+#card-wrapper
+  height: 100%
+  width: 100%
+  min-width: $card-w*2
+  min-height: $card-h*3
+
+#card
+  +single-box-shadow(rgba(black, 0.50), 5px, 5px, 5px) 
+  +border-radius(4px)
+  position: absolute
+  left: 50%
+  margin-left: -$card-w/2
+  top: 50%
+  margin-top: -$card-h/2
+  width: $card-w
+  height: $card-h
+  background-color: $grayLighter
+  padding: 16px
+
+#card-nav
+  position: absolute
+  font-weight: bold
+  left: 50%
+  margin-left: $card-w/2 + 64px
+  top: 50%
+  margin-top: -$card-h/2
+
+#card-actions
+  width: $card-w
+  font-weight: bold
+  position: absolute
+  left: 50%
+  margin-left: -$card-w/2
+  top: 50%
+  margin-top: $card-h/2 + 64px
 

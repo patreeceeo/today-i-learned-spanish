@@ -17,6 +17,7 @@ from pyramid.security import (
     remember,
     forget,
     authenticated_userid,
+    has_permission,
     )
 
 from sqlalchemy.exc import DBAPIError
@@ -28,11 +29,13 @@ from .models import (
 
 from .security import USERS
 
+
 wikiwords = re.compile(r"\b([A-Z]\w+[A-Z]+\w+)")
 
-@view_config(route_name='login', renderer='templates/login.pt')
-@forbidden_view_config(renderer='templates/login.pt')
+@view_config(route_name='login', renderer='login.haml')
+@forbidden_view_config(renderer='login.haml')
 def login(request):
+  page_name = "Login"
   login_url = request.route_url('login')
   referrer = request.url
   if referrer == login_url:
@@ -56,6 +59,7 @@ def login(request):
       came_from=came_from,
       login=login,
       password=password,
+      page_name=page_name,
       )
 
 @view_config(route_name='logout')
@@ -68,61 +72,74 @@ def logout(request):
 @view_config(route_name='view_wiki')
 def view_wiki(request):
   return HTTPFound(location = request.route_url('view_card', 
-                                                cardname='FrontCard'))
+                                                cardid=1))
 
-@view_config(route_name='view_card', renderer='templates/view.pt')
+@view_config(route_name='view_card', renderer='view.haml')
 def view_card(request):
-  cardname = request.matchdict['cardname']
-  card = DBSession.query(Card).filter_by(name=cardname).first()
+  cardid = request.matchdict['cardid']
+  card = DBSession.query(Card).filter_by(id=cardid).first()
+  page_name = card.name
   if card is None:
     return HTTPNotFound('No such card :(')
 
-  def check(match):
-    word = match.group(1)
-    exists = DBSession.query(Card).filter_by(name=word).all()
-    if exists:
-      view_url = request.route_url('view_card', cardname=word)
-      return '<a href="%s">%s</a>' % (view_url, word)
-    else:
-      add_url = request.route_url('add_card', cardname=word)
-      return '<a href="%s">%s</a>' % (add_url, word)
+  edit_url = request.route_url('edit_card', cardid=cardid)
+  prev_card = DBSession.query(Card).filter_by(
+              id=str(int(cardid)-1)).first()
+  next_card = DBSession.query(Card).filter_by(
+              id=str(int(cardid)+1)).first()
+  if not prev_card:
+    prev_card = DBSession.query(Card).order_by(Card.id.desc()).first()
+  if not next_card:
+    next_card = DBSession.query(Card).first()
 
-  # content = publish_parts(card.question, writer_name='html')['html_body']
-  # content = wikiwords.sub(check, content)
-  edit_url = request.route_url('edit_card', cardname=cardname)
-  return dict(card=card, edit_url=edit_url,
-              logged_in=authenticated_userid(request))
+  prev_url = request.route_url('view_card', cardid=prev_card.id)
+  next_url = request.route_url('view_card', cardid=next_card.id)
 
-@view_config(route_name='add_card', renderer='templates/edit.pt',
+  return dict(card=card, 
+              edit_url=edit_url,
+              prev_url=prev_url,
+              next_url=next_url,
+              logged_in=authenticated_userid(request),
+              page_name=page_name,
+              )
+
+@view_config(route_name='add_card', renderer='edit.haml',
     permission='edit')
 def add_card(request):
-  name = request.matchdict['cardname']
+  cardid = request.matchdict['cardid']
+  page_name = "Add Card"
   if 'form.submitted' in request.params:
     question = request.params['question']
-    answer = request.answer['answer']
-    card = Card(name, question)
+    answer = request.params['answer']
+    card = Card('', question, answer)
     DBSession.add(card)
     return HTTPFound(location=request.route_url('view_card',
-                                                cardname=name))
-  save_url = request.route_url('add_card', cardname=name)
-  card = Card('', '')
+                                                cardid=cardid))
+  save_url = request.route_url('add_card', cardid=cardid)
+  card = Card('', '', '')
   return dict(card=card, save_url=save_url,
-              logged_in=authenticated_userid(request))
+              logged_in=authenticated_userid(request),
+              page_name=page_name,
+              )
 
-@view_config(route_name='edit_card', renderer='templates/edit.pt',              permission='edit')
+@view_config(route_name='edit_card', renderer='edit.haml',
+    permission='edit')
 def edit_card(request):
-  name = request.matchdict['cardname']
-  card = DBSession.query(Card).filter_by(name=name).one()
+  cardid = request.matchdict['cardid']
+  card = DBSession.query(Card).filter_by(id=cardid).one()
+  page_name = "Edit " + card.name
   if 'form.submitted' in request.params:
     card.question = request.params['question']
     card.answer = request.params['answer']
     DBSession.add(card)
     return HTTPFound(location = request.route_url('view_card',
-                                                  cardname=name))
+                                                  cardid=cardid))
   return dict(
       card=card,
-      save_url = request.route_url('edit_card', cardname=name),
-      logged_in=authenticated_userid(request))
+      save_url = request.route_url('edit_card', cardid=cardid),
+      logged_in=authenticated_userid(request),
+      page_name=page_name,
+      )
 
 conn_err_msg = """\
 Pyramid is having a problem using your SQL database.  The problem

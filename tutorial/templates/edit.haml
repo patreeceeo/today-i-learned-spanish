@@ -1,0 +1,22 @@
+%%inherit(file="layouts/application.haml")
+
+%%def(name="body()")
+  ${self.navbar()}
+  #card-form.container
+    .row
+      .span8
+        %form.form-horizontal(action="${save_url}", method="post")
+          %fieldset
+            %legend Edit ${card.name}
+            .control-group
+              %label.control-label Question: 
+              .controls
+                %textarea(name="question", placeholder="question", rows="8", cols="60")= card.question
+                %p.help-block Use Markdown for formatting.
+            .control-group
+              %label.control-label Answer: 
+              .controls
+                %textarea(name="answer", placeholder="answer", rows="8", cols="60")= card.answer
+                %p.help-block Use Markdown for formatting
+            .form-actions
+              %input.btn.btn-primary(type="submit", name="form.submitted", value="Save")
